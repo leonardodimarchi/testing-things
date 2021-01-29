@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generators</title>
+</head>
+<body>
+    <h1>Generators</h1>
+    
+    <script>
+        //Generators
+
+        //Generators on functions -> functio* funcName(){}
+        //This bring to us some new properties on the function
+        //Note: the function now is interactive, so we need to store it on a variable
+        //yield can "pause" the function, until the variable.next() is called
+
+        function* messages(){
+            console.log("Message one")
+            yield
+
+            console.log("Message two")
+            yield
+
+            console.log("Message three")
+            yield
+        }
+
+        var msgs = messages();
+
+        console.log(msgs.next())
+        console.log('Message beetween one and two')
+        console.log(msgs.next())
+        console.log(msgs.next())
+
+        //The yield can receive a value, using the .next() function !
+
+        function* messages_receiving(){
+            console.log("Message one")
+            yield 1
+
+            console.log("Message two")
+            const received = yield 2
+
+            console.log("Message three, message two sended this: "+ received)
+        }
+
+        const receiving = messages_receiving()
+
+        console.log(receiving.next())
+        console.log('Message before receiving')
+        console.log(receiving.next())
+        console.log(receiving.next('SendingThis'))
+    
+        //Those can be used to make iterators too    
+
+    </script>
+</body>
+</html>
