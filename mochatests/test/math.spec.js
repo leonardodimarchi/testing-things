@@ -1,6 +1,17 @@
 //Mocha uses NodeJS
+//npm i --save-dev mocha
+//npm i --save-dev chai 
 
+/*What is CHAI Library? 
+    On the basic mocha, we use a assert from node modules, but it's not suficient on a test. Chai is here to fix that, it's a assert tool !
+*/
+
+//Without CHAI
 const assert = require('assert');
+
+//With CHAI (Bring to us the 'expect()')
+const expect = require('chai').expect;
+
 const Math = require('./math.js');
 
 describe('Math Class Testing', function () {
@@ -25,7 +36,11 @@ describe('Math Class Testing', function () {
 
         //Callback Function  (Need to change parameter on 'it' function to 'done')
         math.multiply(5,2, result => {
-            assert.equal(result,10);
+            //Without CHAI
+            //assert.equal(result,10);
+
+            //With CHAI
+            expect(result).to.equal(10)
 
             //to end the function
             done();
@@ -37,9 +52,21 @@ describe('Math Class Testing', function () {
 
     //Method .skip will skip the test
     //Method .only, only this test will execute
-    it.skip('Divide two numbers', function () {
+    it('Divide two numbers', function () {
         const math = new Math();
 
-        assert.equal(math.divide(10,2), 5)
+        //Without CHAI
+        //assert.equal(math.divide(10,2), 5)
+
+        //With CHAI
+        //expect(math.divide(10,2)).to.equal(5)
+
+        //We can verify obj too
+        const obj = {
+            name: 'Luiz Toquetto'
+        }
+
+        //expect(obj).to.have.property('name')
+        expect(obj).to.have.property('name').equal('Luiz Toquetto')
     })
 })
