@@ -8,6 +8,10 @@ class Math {
     divide(a, b=1){
         return a/b
     }
+
+    printSum(req, res, a, b=1){
+        console.log(res.load('index', a+b))
+    }
 }
 
 module.exports = Math;

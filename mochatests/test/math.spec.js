@@ -1,9 +1,15 @@
 //Mocha uses NodeJS
 //npm i --save-dev mocha
 //npm i --save-dev chai 
+//npm i --save-dev sinon
 
 /*What is CHAI Library? 
-    On the basic mocha, we use a assert from node modules, but it's not suficient on a test. Chai is here to fix that, it's a assert tool !
+    On the basic mocha, we use a assert from node modules, but it's not sufficient on a test. Chai is here to fix that, it's a assert tool !
+*/
+
+/*What is SINON Library?
+    Sinon is a lib to help us to test those cases where mocha and CHAI isn't enough.
+    And to MOCK functions
 */
 
 //Without CHAI
@@ -11,6 +17,9 @@ const assert = require('assert');
 
 //With CHAI (Bring to us the 'expect()')
 const expect = require('chai').expect;
+
+//Sinon
+const sinon = require('sinon')
 
 const Math = require('./math.js');
 
@@ -52,6 +61,27 @@ describe('Math Class Testing', function () {
 
     //Method .skip will skip the test
     //Method .only, only this test will execute
+    it.only('Calls res with sum and index values', function () {
+        const req = {}
+        const res = {
+            //Spying if the function was invoked a certain way
+            //load: sinon.spy()
+
+            //if the function already exists
+            load: function load(){}
+        }
+
+        //Sinon stub, it override the function and can call a certain return
+        sinon.stub(res, 'load').returns('Called')
+
+        const math = new Math();
+
+        math.printSum(req, res,5,5);
+
+        //expect(res.load.calledOnce).to.be.true;
+        expect(res.load.args[0][0]).to.equal('index')
+    })
+
     it('Divide two numbers', function () {
         const math = new Math();
 
