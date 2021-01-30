@@ -38,5 +38,12 @@ Just like TDD, the test is writen before the code.
 * Dynamic documentation
 * A good project expected behavior
 
-___
+# Mocha, Chai and Sinon
+
+* Mocha is a test framework
+* Chai is a test library to overlap the basic "assets" that node modules give to us
+* Sinon is a test library used to apply spies, stubs and mock our functions in order to give us more control over our tests
+
+***
+
 
