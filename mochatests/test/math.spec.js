@@ -4,6 +4,9 @@ const assert = require('assert');
 const Math = require('./math.js');
 
 describe('Math Class Testing', function () {
+    //What is HOOKS ?
+
+
     //Expected behavior
     //When the parameter == done, the rest will execute after the function is complete
     //We need to go with 'function' here, not the arrow function
@@ -22,5 +25,16 @@ describe('Math Class Testing', function () {
             //to end the function
             done();
         })
+    })
+
+    //This will be pending
+    it('Sum two numbers');
+
+    //Method .skip will skip the test
+    //Method .only, only this test will execute
+    it.only('Divide two numbers', function () {
+        const math = new Math();
+
+        assert.equal(math.divide(10,2), 5)
     })
 })

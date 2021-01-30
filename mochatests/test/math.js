@@ -2,7 +2,11 @@ class Math {
     multiply(a, b=1, callback){
         setTimeout(() => {
             callback (a*b)
-        }, 2000)
+        }, 1000)
+    }
+
+    divide(a, b=1){
+        return a/b
     }
 }
 
