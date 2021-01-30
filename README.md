@@ -28,3 +28,15 @@ Writing the test -> Writing the code -> Refactoring
 
 # BDD (Behavior Driven Development)
 
+Writing the test thinking in the behavior expected and documenting those behaviors.
+
+Just like TDD, the test is writen before the code.
+
+### Advantages
+
+* Sharing knowledge
+* Dynamic documentation
+* A good project expected behavior
+
+___
+
