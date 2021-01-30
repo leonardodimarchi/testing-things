@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks and Promises</title>
+</head>
+<body>
+    <h1> Callbacks and Promises</h1>
+
+    <script>
+
+        //Callbacks can make async functions
+
+        function multiply(a, b = 1, callback){
+            var result = a*b
+
+            setTimeout(() => {
+               callback(result)
+            }, 1000)
+            
+        }
+
+        multiply(5, 2, (valor) => {
+            //This is going to exec after the result variable
+            console.log(valor)
+        })
+
+        //Promises
+        const multiplyPromise = (a, b = 1) => 
+            new Promise((resolve, reject)=>{
+                var result = a*b
+
+                setTimeout(() => {
+                resolve(result)
+                }, 1000)
+        })
+
+        multiplyPromise(5, 3)
+        .then(data => {console.log(data)})
+        .catch(error => console.log('Something went wrong', error))
+
+
+    </script>
+    
+</body>
+</html>
